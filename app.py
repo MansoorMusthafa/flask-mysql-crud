@@ -4,10 +4,11 @@ import mysql.connector
 app = Flask(__name__)
 
 db_config = {
-    "host": "localhost", 
-    "user": "root",
-    "password": "",
-    "database": "crud_python"
+    "host": os.getenv("DB_HOST"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "database": os.getenv("DB_NAME"),
+    "port": int(os.getenv("DB_PORT", "4000"))
 }
 
 def get_conn():
